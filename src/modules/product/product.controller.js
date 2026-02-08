@@ -1,4 +1,5 @@
-import { createProductService } from "./product.service.js";
+import { createProductService, getAllProductsService } from "./product.service.js";
+
 
 export const createProduct = async(req,res,next) => {
     try {
@@ -15,10 +16,22 @@ export const createProduct = async(req,res,next) => {
 
         res.status(201).json({
             success: true,
-            message: 'Poduct created successfully',
+            message: 'Product created successfully',
             data: product
         });
     } catch (error) {
         next(error)
     };
+};
+
+export const getAllProducts = async(req,res,next) => {
+    try {
+        const products = await getAllProductsService();
+        res.status(201).json({
+            success: true,
+            data: products
+        })
+    } catch (error) {
+        next(error)
+    }
 };
