@@ -27,7 +27,7 @@ export const createProduct = async(req,res,next) => {
 export const getAllProducts = async(req,res,next) => {
     try {
         const products = await getAllProductsService();
-        res.status(201).json({
+        res.status(200).json({
             success: true,
             data: products
         })

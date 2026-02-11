@@ -10,6 +10,6 @@ export const getAllProductsService = async() =>{
         const products = await Product.find({}).sort({createdAt: -1})
         return products;
     } catch (error) {
-        next(error)
+        throw(error)
     }
 };
